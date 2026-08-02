@@ -1,0 +1,22 @@
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+
+# macOS
+.DS_Store
+
+# Node.js
+node_modules/
+
+# Logs
+*.log
+
+# Arquivos temporários
+temp/
+
+# Arquivos Automatizacao Cypress
+node_modules/
+cypress/videos/
+cypress/screenshots/
