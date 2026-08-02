@@ -17,7 +17,6 @@ Casos de Teste
 Relatórios de Bugs
 Técnicas de Teste
 Postman
-SQL
 Cypress
 Playwright
 Jira
