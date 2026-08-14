@@ -197,7 +197,265 @@ O acesso deve ser negado e a aplicação deve apresentar uma mensagem informando
 
 ## 📦 Produtos
 
-Os casos de teste relacionados aos produtos serão adicionados durante a próxima etapa do projeto.
+### CT-006 — Exibir lista de produtos após login
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que a lista de produtos é exibida corretamente após a autenticação do usuário.
+
+#### Pré-condições
+
+- Aplicação SauceDemo disponível;
+- Usuário autenticado com credenciais válidas;
+- Usuário na página de produtos.
+
+#### Dados de Teste
+
+**Usuário:** `standard_user`  
+**Senha:** `secret_sauce`
+
+#### Passos
+
+1. Acessar a aplicação SauceDemo;
+2. Realizar login com credenciais válidas;
+3. Aguardar o carregamento da página de produtos;
+4. Verificar a lista de produtos.
+
+#### Resultado Esperado
+
+A página de produtos deve ser exibida e a lista de produtos deve estar visível.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-007 — Validar informações dos produtos
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que os produtos exibidos apresentam as informações necessárias.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página de produtos.
+
+#### Passos
+
+1. Acessar a página de produtos;
+2. Verificar os produtos disponíveis;
+3. Validar a existência do nome;
+4. Validar a existência da descrição;
+5. Validar a existência do preço.
+
+#### Resultado Esperado
+
+Os produtos devem apresentar nome, descrição e preço visíveis.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-008 — Ordenar produtos por preço crescente
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar a ordenação dos produtos do menor para o maior preço.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página de produtos.
+
+#### Passos
+
+1. Acessar a página de produtos;
+2. Abrir o seletor de ordenação;
+3. Selecionar a opção de menor para maior preço;
+4. Verificar a ordem dos preços apresentados.
+
+#### Resultado Esperado
+
+Os produtos devem ser exibidos em ordem crescente de preço.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-009 — Ordenar produtos por preço decrescente
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar a ordenação dos produtos do maior para o menor preço.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página de produtos.
+
+#### Passos
+
+1. Acessar a página de produtos;
+2. Abrir o seletor de ordenação;
+3. Selecionar a opção de maior para menor preço;
+4. Verificar a ordem dos preços apresentados.
+
+#### Resultado Esperado
+
+Os produtos devem ser exibidos em ordem decrescente de preço.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-010 — Ordenar produtos por nome A → Z
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar a ordenação alfabética crescente dos produtos.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página de produtos.
+
+#### Passos
+
+1. Acessar a página de produtos;
+2. Abrir o seletor de ordenação;
+3. Selecionar a opção de ordenação de A para Z;
+4. Verificar a ordem dos nomes apresentados.
+
+#### Resultado Esperado
+
+Os produtos devem ser exibidos em ordem alfabética crescente.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-011 — Ordenar produtos por nome Z → A
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar a ordenação alfabética decrescente dos produtos.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página de produtos.
+
+#### Passos
+
+1. Acessar a página de produtos;
+2. Abrir o seletor de ordenação;
+3. Selecionar a opção de ordenação de Z para A;
+4. Verificar a ordem dos nomes apresentados.
+
+#### Resultado Esperado
+
+Os produtos devem ser exibidos em ordem alfabética decrescente.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-012 — Acessar detalhes de um produto
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que o usuário consegue acessar a página de detalhes de um produto.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página de produtos.
+
+#### Passos
+
+1. Acessar a página de produtos;
+2. Selecionar um produto;
+3. Acessar os detalhes do produto;
+4. Verificar as informações apresentadas.
+
+#### Resultado Esperado
+
+A página de detalhes do produto deve ser exibida contendo nome, descrição e preço.
+
+#### Status
+
+✅ Aprovado
+
+## 🔎 Observações Exploratórias — Produtos
+
+Durante a exploração manual da página de produtos foram identificados textos incomuns em alguns itens.
+
+### OBS-001 — Nome incomum de produto
+
+Produto:
+`Test.allTheThings() T-Shirt (Red)`
+
+Observação:
+O nome contém uma expressão semelhante a código ou texto utilizado em contexto de testes.
+
+Status:
+Em análise.
+
+---
+
+### OBS-002 — Descrição incomum de produto
+
+Produto:
+`Sauce Labs Backpack`
+
+Descrição inicia com:
+`carry.allTheThings()`
+
+Observação:
+O texto aparenta ser uma expressão de teste ou placeholder exibido na descrição do produto.
+
+Status:
+Em análise.
 
 ---
 
