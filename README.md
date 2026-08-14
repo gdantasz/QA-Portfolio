@@ -89,15 +89,27 @@ Esta seção reúne projetos nos quais aplico os conhecimentos de QA de forma in
 
 Projeto de testes desenvolvido utilizando a aplicação **SauceDemo**, que simula funcionalidades de um e-commerce.
 
-O projeto está sendo desenvolvido de forma incremental, documentando os cenários antes da implementação das automações.
+O projeto está sendo desenvolvido de forma incremental, iniciando pela exploração e análise das funcionalidades, seguida pela documentação dos casos de teste, implementação das automações, execução e registro das evidências.
 
 ### 🛠️ Tecnologias
 
 - Cypress
 - JavaScript
 - Node.js
+- npm
 - Git
 - GitHub
+- Visual Studio Code
+
+### 🧪 Testes Automatizados
+
+Atualmente o projeto possui **12 testes automatizados executados com sucesso**.
+
+| Módulo | Casos | Resultado |
+|---|---:|---|
+| 🔐 Login | 5 | ✅ 5/5 |
+| 📦 Produtos | 7 | ✅ 7/7 |
+| **Total** | **12** | **✅ 12/12** |
 
 ### 🔐 Módulo de Login
 
@@ -109,7 +121,32 @@ O primeiro módulo automatizado contempla os seguintes cenários:
 - CT-004 — Login sem informar senha;
 - CT-005 — Login com usuário bloqueado.
 
-**Resultado atual: 5/5 testes automatizados aprovados. ✅**
+**Resultado: 5/5 testes automatizados aprovados. ✅**
+
+### 📦 Módulo de Produtos
+
+O segundo módulo automatizado contempla cenários relacionados à exibição, integridade das informações, ordenação e detalhes dos produtos:
+
+- CT-006 — Exibir lista de produtos após login;
+- CT-007 — Validar informações dos produtos;
+- CT-008 — Ordenar produtos por preço crescente;
+- CT-009 — Ordenar produtos por preço decrescente;
+- CT-010 — Ordenar produtos por nome A → Z;
+- CT-011 — Ordenar produtos por nome Z → A;
+- CT-012 — Acessar detalhes de um produto.
+
+**Resultado: 7/7 testes automatizados aprovados. ✅**
+
+Durante este módulo foram aplicadas validações envolvendo:
+
+- Listas de elementos;
+- Nome, descrição e preço dos produtos;
+- Conversão e comparação de valores numéricos;
+- Ordenação crescente e decrescente;
+- Ordenação alfabética;
+- Comparação de arrays;
+- Navegação entre páginas;
+- Consistência de informações entre listagem e detalhes.
 
 ### 📚 Documentação do Projeto
 
@@ -117,14 +154,23 @@ O primeiro módulo automatizado contempla os seguintes cenários:
 - [📑 Plano de Testes](./12%20-%20Projetos/SauceDemo/Docs/plano-de-testes.md)
 - [📸 Evidências](./12%20-%20Projetos/SauceDemo/Evidencias/)
 - [🤖 Código Cypress](./12%20-%20Projetos/SauceDemo/cypress/e2e/)
+- [🔐 Automação de Login](./12%20-%20Projetos/SauceDemo/cypress/e2e/login.cy.js)
+- [📦 Automação de Produtos](./12%20-%20Projetos/SauceDemo/cypress/e2e/products.cy.js)
+
+### 📸 Evidências
+
+As evidências das execuções realizadas estão organizadas por funcionalidade:
+
+- [🔐 Evidência — Login](./12%20-%20Projetos/SauceDemo/Evidencias/Login/login-testes-aprovados.png)
+- [📦 Evidência — Produtos](./12%20-%20Projetos/SauceDemo/Evidencias/Produtos/produtos-testes-aprovados.png)
 
 ### 📊 Progresso
 
 | Módulo | Status |
 |---|---|
 | 🔐 Login | ✅ Concluído — 5/5 |
-| 📦 Produtos | 🔄 Próxima etapa |
-| 🛒 Carrinho | ⏳ Planejado |
+| 📦 Produtos | ✅ Concluído — 7/7 |
+| 🛒 Carrinho | 🔄 Próxima etapa |
 | 💳 Checkout | ⏳ Planejado |
 | 🔄 Fluxo E2E | ⏳ Planejado |
 
@@ -140,7 +186,7 @@ Além de exemplos individuais de documentação e testes, a pasta **Projetos** r
 
 O objetivo é demonstrar não apenas conhecimento sobre ferramentas, mas também o processo utilizado para:
 
-**Analisar → Planejar → Documentar → Testar → Automatizar → Executar → Evidenciar**
+**Explorar → Analisar → Planejar → Documentar → Testar → Automatizar → Executar → Evidenciar**
 
 ---
 
@@ -152,7 +198,10 @@ Atualmente estou evoluindo meus conhecimentos principalmente em:
 - JavaScript aplicado à automação;
 - Testes End-to-End;
 - Boas práticas de automação;
-- Organização e manutenção de suítes de testes.
+- Assertions e validações;
+- Manipulação e comparação de dados em testes;
+- Organização e manutenção de suítes de testes;
+- Refatoração de testes automatizados.
 
 ---
 
@@ -162,12 +211,19 @@ Atualmente estou evoluindo meus conhecimentos principalmente em:
 - [x] Criar planos de teste;
 - [x] Trabalhar com Git e GitHub;
 - [x] Iniciar automação Web com Cypress;
-- [x] Desenvolver primeiro módulo E2E automatizado;
+- [x] Automatizar módulo de Login;
+- [x] Automatizar módulo de Produtos;
+- [x] Registrar evidências das execuções;
+- [x] Aplicar refatoração e boas práticas básicas nos testes;
+- [ ] Automatizar módulo de Carrinho;
+- [ ] Automatizar módulo de Checkout;
+- [ ] Criar fluxo completo End-to-End;
 - [ ] Expandir automação com Cypress;
 - [ ] Aprofundar testes de API;
 - [ ] Desenvolver automações com Playwright;
 - [ ] Realizar testes de Performance;
 - [ ] Implementar relatórios automatizados;
+- [ ] Trabalhar com branches e Pull Requests;
 - [ ] Implementar Integração Contínua (CI/CD);
 - [ ] Executar testes Cypress automaticamente em pipeline;
 - [ ] Desenvolver novos projetos completos de QA.
