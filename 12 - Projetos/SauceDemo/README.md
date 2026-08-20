@@ -114,13 +114,14 @@ A documentação utilizada no projeto pode ser acessada diretamente pelos links 
 
 Atualmente o projeto possui:
 
-**12 testes automatizados executados com sucesso. ✅**
+**20 testes automatizados executados com sucesso. ✅**
 
 | Módulo | Casos | Resultado |
 |---|---:|---|
 | 🔐 Login | 5 | ✅ 5/5 |
 | 📦 Produtos | 7 | ✅ 7/7 |
-| **Total** | **12** | **✅ 12/12** |
+| 🛒 Carrinho | 8 | ✅ 8/8 |
+| **Total** | **20** | **✅ 20/20** |
 
 ---
 
@@ -221,6 +222,52 @@ A mesma estratégia é utilizada para validar as ordenações por nome.
 ### 🤖 Automação
 
 ➡️ [Ver `products.cy.js`](./cypress/e2e/products.cy.js)
+
+---
+
+# 🛒 Módulo de Carrinho
+
+O terceiro módulo desenvolvido foi o fluxo de Carrinho da aplicação.
+
+Foram documentados e automatizados oito cenários relacionados à adição, remoção e validação de produtos no carrinho, além da navegação entre Produtos, Carrinho e início do Checkout.
+
+## Casos de Teste
+
+| ID | Cenário | Tipo | Resultado |
+|---|---|---|---|
+| CT-013 | Adicionar um produto ao carrinho | Positivo | ✅ Aprovado |
+| CT-014 | Validar badge do carrinho após adicionar produto | Positivo | ✅ Aprovado |
+| CT-015 | Adicionar múltiplos produtos diferentes ao carrinho | Positivo | ✅ Aprovado |
+| CT-016 | Validar produtos adicionados dentro do carrinho | Positivo | ✅ Aprovado |
+| CT-017 | Remover produto pelo carrinho | Positivo | ✅ Aprovado |
+| CT-018 | Remover produto pela página de Produtos | Positivo | ✅ Aprovado |
+| CT-019 | Continuar comprando a partir do carrinho | Positivo | ✅ Aprovado |
+| CT-020 | Acessar o Checkout a partir do carrinho | Positivo | ✅ Aprovado |
+
+**Resultado: 8/8 testes aprovados. ✅**
+
+### 🔎 Validações realizadas
+
+Durante os testes de Carrinho foram realizadas validações relacionadas a:
+
+- Adição de produtos ao carrinho;
+- Atualização do badge do carrinho;
+- Adição de múltiplos produtos;
+- Quantidade de itens no carrinho;
+- Nome dos produtos adicionados;
+- Preço dos produtos adicionados;
+- Consistência dos dados entre Products e Carrinho;
+- Remoção de produtos pelo carrinho;
+- Remoção de produtos pela página de Products;
+- Atualização do estado do botão `Add to cart` / `Remove`;
+- Atualização e desaparecimento do badge;
+- Retorno para Products através de `Continue Shopping`;
+- Navegação para a primeira etapa do Checkout;
+- Exibição dos campos iniciais do Checkout.
+
+### 🤖 Automação
+
+➡️ [Ver `cart.cy.js`](./cypress/e2e/cart.cy.js)
 
 ---
 
@@ -338,27 +385,37 @@ Foram executados os sete cenários automatizados do módulo de Produtos.
 
 ---
 
+## 🛒 Carrinho
+
+Foram executados os oito cenários automatizados do módulo de Carrinho.
+
+**Resultado: 8 testes aprovados. ✅**
+
+![Execução dos testes de Carrinho](./Evidencias/Carrinho/carrinho-testes-aprovados.png)
+
+➡️ [Abrir evidência de Carrinho](./Evidencias/Carrinho/carrinho-testes-aprovados.png)
+
+---
+
 # 📊 Status do Projeto
 
 | Módulo | Documentação | Automação | Execução |
 |---|---|---|---|
 | 🔐 Login | ✅ | ✅ | ✅ 5/5 |
 | 📦 Produtos | ✅ | ✅ | ✅ 7/7 |
-| 🛒 Carrinho | ⏳ | ⏳ | ⏳ |
+| 🛒 Carrinho | ✅ | ✅ | ✅ 8/8 |
 | 💳 Checkout | ⏳ | ⏳ | ⏳ |
 | 🔄 End-to-End | ⏳ | ⏳ | ⏳ |
 
 ### Progresso atual
 
-```text
 Login       ██████████ 100%  ✅
 Produtos    ██████████ 100%  ✅
-Carrinho    ░░░░░░░░░░   0%  ⏳
+Carrinho    ██████████ 100%  ✅
 Checkout    ░░░░░░░░░░   0%  ⏳
 E2E         ░░░░░░░░░░   0%  ⏳
-```
 
-**Próximo módulo: 🛒 Carrinho**
+**Próximo módulo: 💳 Checkout**
 
 ---
 
@@ -417,6 +474,7 @@ As specs disponíveis atualmente incluem:
 ```text
 login.cy.js
 products.cy.js
+cart.cy.js
 ```
 
 ---
@@ -442,6 +500,13 @@ npx cypress run --spec "cypress/e2e/login.cy.js"
 ```bash
 npx cypress run --spec "cypress/e2e/products.cy.js"
 ```
+
+---
+
+## 8. Executar somente Carrinho
+
+```bash
+npx cypress run --spec "cypress/e2e/cart.cy.js"
 
 ---
 
@@ -522,8 +587,11 @@ Esse processo faz parte da análise exploratória utilizada antes da automação
 - [x] Refatorar automação de Produtos;
 - [x] Executar testes de Produtos;
 - [x] Registrar evidência de Produtos;
-- [ ] Documentar casos de teste do Carrinho;
-- [ ] Automatizar testes do Carrinho;
+- [x] Documentar casos de teste do Carrinho;
+- [x] Automatizar testes do Carrinho;
+- [x] Refatorar automação do Carrinho;
+- [x] Executar testes do Carrinho;
+- [x] Registrar evidência do Carrinho;
 - [ ] Documentar casos de teste do Checkout;
 - [ ] Automatizar testes do Checkout;
 - [ ] Criar cenário completo End-to-End;

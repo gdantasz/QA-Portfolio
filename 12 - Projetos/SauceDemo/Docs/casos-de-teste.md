@@ -461,7 +461,330 @@ Em análise.
 
 ## 🛒 Carrinho
 
-Os casos de teste relacionados ao carrinho serão adicionados durante a próxima etapa do projeto.
+### CT-013 — Adicionar um produto ao carrinho
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que o usuário consegue adicionar um produto ao carrinho com sucesso.
+
+#### Pré-condições
+
+- Aplicação SauceDemo disponível;
+- Usuário autenticado com credenciais válidas;
+- Usuário na página de produtos.
+
+#### Dados de Teste
+
+**Usuário:** `standard_user`  
+**Senha:** `secret_sauce`  
+**Produto:** `Sauce Labs Backpack`
+
+#### Passos
+
+1. Acessar a aplicação SauceDemo;
+2. Realizar login com credenciais válidas;
+3. Localizar o produto `Sauce Labs Backpack`;
+4. Clicar no botão `Add to cart`;
+5. Acessar o carrinho;
+6. Verificar se o produto foi adicionado.
+
+#### Resultado Esperado
+
+O produto `Sauce Labs Backpack` deve ser exibido dentro do carrinho.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-014 — Validar badge do carrinho após adicionar produto
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que o contador exibido no ícone do carrinho é atualizado corretamente após a adição de um produto.
+
+#### Pré-condições
+
+- Aplicação SauceDemo disponível;
+- Usuário autenticado;
+- Usuário na página de produtos;
+- Carrinho inicialmente sem produtos.
+
+#### Dados de Teste
+
+**Produto:** `Sauce Labs Backpack`
+
+#### Passos
+
+1. Acessar a página de produtos;
+2. Localizar o produto `Sauce Labs Backpack`;
+3. Clicar no botão `Add to cart`;
+4. Observar o badge exibido no ícone do carrinho.
+
+#### Resultado Esperado
+
+O badge do carrinho deve ser exibido com o valor `1`.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-015 — Adicionar múltiplos produtos diferentes ao carrinho
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que o usuário consegue adicionar múltiplos produtos diferentes ao carrinho.
+
+#### Pré-condições
+
+- Aplicação SauceDemo disponível;
+- Usuário autenticado;
+- Usuário na página de produtos;
+- Carrinho inicialmente vazio.
+
+#### Dados de Teste
+
+Produtos:
+
+- `Sauce Labs Backpack`;
+- `Sauce Labs Bike Light`;
+- `Sauce Labs Bolt T-Shirt`.
+
+#### Passos
+
+1. Acessar a página de produtos;
+2. Adicionar `Sauce Labs Backpack` ao carrinho;
+3. Adicionar `Sauce Labs Bike Light` ao carrinho;
+4. Adicionar `Sauce Labs Bolt T-Shirt` ao carrinho;
+5. Verificar o badge do carrinho;
+6. Acessar o carrinho.
+
+#### Resultado Esperado
+
+O badge do carrinho deve apresentar o valor `3` e os três produtos adicionados devem estar presentes no carrinho.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-016 — Validar produtos adicionados dentro do carrinho
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que os produtos adicionados na página de Products são exibidos corretamente dentro do carrinho.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página de produtos;
+- Carrinho inicialmente vazio.
+
+#### Dados de Teste
+
+Produtos:
+
+- `Sauce Labs Backpack`;
+- `Sauce Labs Bike Light`.
+
+#### Passos
+
+1. Adicionar `Sauce Labs Backpack` ao carrinho;
+2. Adicionar `Sauce Labs Bike Light` ao carrinho;
+3. Acessar o carrinho;
+4. Localizar os produtos adicionados;
+5. Verificar os nomes apresentados;
+6. Verificar os preços apresentados.
+
+#### Resultado Esperado
+
+Os produtos adicionados devem ser exibidos no carrinho com os mesmos nomes e preços apresentados na página de produtos.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-017 — Remover produto pelo carrinho
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que o usuário consegue remover um produto diretamente da página do carrinho.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Carrinho contendo pelo menos um produto.
+
+#### Dados de Teste
+
+**Produto:** `Sauce Labs Backpack`
+
+#### Passos
+
+1. Adicionar `Sauce Labs Backpack` ao carrinho;
+2. Acessar o carrinho;
+3. Verificar que o produto está presente;
+4. Clicar no botão `Remove`;
+5. Verificar o conteúdo do carrinho;
+6. Verificar o badge do carrinho.
+
+#### Resultado Esperado
+
+O produto deve ser removido do carrinho e não deve mais ser exibido na lista.
+
+Caso o carrinho fique vazio, o badge do carrinho não deve mais ser exibido.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-018 — Remover produto pela página de Produtos
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que um produto adicionado ao carrinho pode ser removido diretamente pela página de produtos.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página de produtos;
+- Carrinho inicialmente vazio.
+
+#### Dados de Teste
+
+**Produto:** `Sauce Labs Backpack`
+
+#### Passos
+
+1. Localizar `Sauce Labs Backpack`;
+2. Clicar em `Add to cart`;
+3. Verificar que o botão do produto foi alterado para `Remove`;
+4. Verificar que o badge do carrinho apresenta o valor `1`;
+5. Clicar no botão `Remove`;
+6. Verificar novamente o botão do produto;
+7. Verificar o badge do carrinho.
+
+#### Resultado Esperado
+
+O produto deve ser removido do carrinho.
+
+O botão deve voltar a apresentar `Add to cart` e o badge do carrinho deve desaparecer quando não houver outros produtos adicionados.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-019 — Continuar comprando a partir do carrinho
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar o funcionamento da opção `Continue Shopping` disponível na página do carrinho.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Usuário na página do carrinho.
+
+#### Passos
+
+1. Adicionar um produto ao carrinho;
+2. Acessar o carrinho;
+3. Clicar no botão `Continue Shopping`;
+4. Verificar a página apresentada.
+
+#### Resultado Esperado
+
+O usuário deve ser redirecionado para a página de produtos.
+
+A URL deve corresponder à página `inventory.html` e a lista de produtos deve estar disponível.
+
+#### Status
+
+✅ Aprovado
+
+---
+
+### CT-020 — Acessar o Checkout a partir do carrinho
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+#### Objetivo
+
+Validar que o usuário consegue iniciar o processo de checkout através da página do carrinho.
+
+#### Pré-condições
+
+- Usuário autenticado;
+- Carrinho contendo pelo menos um produto;
+- Usuário na página do carrinho.
+
+#### Dados de Teste
+
+**Produto:** `Sauce Labs Backpack`
+
+#### Passos
+
+1. Adicionar `Sauce Labs Backpack` ao carrinho;
+2. Acessar o carrinho;
+3. Verificar que o produto está presente;
+4. Clicar no botão `Checkout`;
+5. Verificar a página apresentada.
+
+#### Resultado Esperado
+
+O usuário deve ser redirecionado para a primeira etapa do checkout.
+
+A página deve apresentar os seguintes campos:
+
+- First Name;
+- Last Name;
+- Zip/Postal Code.
+
+O preenchimento e validação desses campos serão tratados nos casos de teste do módulo de Checkout.
+
+#### Status
+
+✅ Aprovado
 
 ---
 
