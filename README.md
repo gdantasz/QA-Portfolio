@@ -255,7 +255,7 @@ Atualmente estou evoluindo meus conhecimentos principalmente em:
 - [x] Registrar evidências das execuções;
 - [x] Aplicar refatoração e boas práticas básicas nos testes;
 - [x] Automatizar módulo de Carrinho;
-- [ ] Automatizar módulo de Checkout;
+- [x] Automatizar módulo de Checkout;
 - [ ] Criar fluxo completo End-to-End;
 - [ ] Expandir automação com Cypress;
 - [ ] Aprofundar testes de API;
