@@ -788,9 +788,405 @@ O preenchimento e validação desses campos serão tratados nos casos de teste d
 
 ---
 
-## 💳 Checkout
+# 💳 Checkout
 
-Os casos de teste relacionados ao checkout serão adicionados durante a próxima etapa do projeto.
+## CT-021 — Avançar no checkout com dados válidos
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar que o usuário consegue preencher corretamente os dados obrigatórios do Checkout e avançar para a página de resumo da compra.
+
+### Pré-condições
+
+- Aplicação SauceDemo disponível;
+- Usuário autenticado com credenciais válidas;
+- Carrinho contendo pelo menos um produto;
+- Usuário na primeira etapa do Checkout.
+
+### Dados de Teste
+
+**Usuário:** `standard_user`  
+**Senha:** `secret_sauce`  
+**Produto:** `Sauce Labs Backpack`  
+**First Name:** `Gabriel`  
+**Last Name:** `Dantas`  
+**Zip/Postal Code:** `12345`
+
+### Passos
+
+1. Acessar a aplicação SauceDemo;
+2. Realizar login com credenciais válidas;
+3. Adicionar `Sauce Labs Backpack` ao carrinho;
+4. Acessar o carrinho;
+5. Clicar em `Checkout`;
+6. Preencher `First Name` com `Gabriel`;
+7. Preencher `Last Name` com `Dantas`;
+8. Preencher `Zip/Postal Code` com `12345`;
+9. Clicar em `Continue`.
+
+### Resultado Esperado
+
+O usuário deve avançar para a página `Checkout: Overview`.
+
+### Status
+
+✅ Aprovado
+
+---
+
+## CT-022 — Validar obrigatoriedade do First Name
+
+**Prioridade:** Alta  
+**Tipo:** Negativo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar que o campo `First Name` é obrigatório para avançar no Checkout.
+
+### Pré-condições
+
+- Usuário autenticado;
+- Carrinho contendo pelo menos um produto;
+- Usuário na primeira etapa do Checkout.
+
+### Dados de Teste
+
+**First Name:** vazio  
+**Last Name:** `Dantas`  
+**Zip/Postal Code:** `12345`
+
+### Passos
+
+1. Acessar a primeira etapa do Checkout;
+2. Manter `First Name` vazio;
+3. Preencher `Last Name`;
+4. Preencher `Zip/Postal Code`;
+5. Clicar em `Continue`.
+
+### Resultado Esperado
+
+O usuário não deve avançar para o Overview e a aplicação deve informar que `First Name` é obrigatório.
+
+Mensagem esperada:
+
+`Error: First Name is required`
+
+### Status
+
+✅ Aprovado
+
+---
+
+## CT-023 — Validar obrigatoriedade do Last Name
+
+**Prioridade:** Alta  
+**Tipo:** Negativo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar que o campo `Last Name` é obrigatório para avançar no Checkout.
+
+### Pré-condições
+
+- Usuário autenticado;
+- Carrinho contendo pelo menos um produto;
+- Usuário na primeira etapa do Checkout.
+
+### Dados de Teste
+
+**First Name:** `Gabriel`  
+**Last Name:** vazio  
+**Zip/Postal Code:** `12345`
+
+### Passos
+
+1. Acessar a primeira etapa do Checkout;
+2. Preencher `First Name`;
+3. Manter `Last Name` vazio;
+4. Preencher `Zip/Postal Code`;
+5. Clicar em `Continue`.
+
+### Resultado Esperado
+
+O usuário não deve avançar para o Overview e a aplicação deve informar que `Last Name` é obrigatório.
+
+Mensagem esperada:
+
+`Error: Last Name is required`
+
+### Status
+
+✅ Aprovado
+
+---
+
+## CT-024 — Validar obrigatoriedade do Postal Code
+
+**Prioridade:** Alta  
+**Tipo:** Negativo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar que o campo `Zip/Postal Code` é obrigatório para avançar no Checkout.
+
+### Pré-condições
+
+- Usuário autenticado;
+- Carrinho contendo pelo menos um produto;
+- Usuário na primeira etapa do Checkout.
+
+### Dados de Teste
+
+**First Name:** `Gabriel`  
+**Last Name:** `Dantas`  
+**Zip/Postal Code:** vazio
+
+### Passos
+
+1. Acessar a primeira etapa do Checkout;
+2. Preencher `First Name`;
+3. Preencher `Last Name`;
+4. Manter `Zip/Postal Code` vazio;
+5. Clicar em `Continue`.
+
+### Resultado Esperado
+
+O usuário não deve avançar para o Overview e a aplicação deve informar que `Postal Code` é obrigatório.
+
+Mensagem esperada:
+
+`Error: Postal Code is required`
+
+### Status
+
+✅ Aprovado
+
+---
+
+## CT-025 — Validar informações do produto no Checkout Overview
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar que as informações do produto adicionado ao carrinho são mantidas corretamente na página de resumo do Checkout.
+
+### Pré-condições
+
+- Usuário autenticado;
+- Produto adicionado ao carrinho;
+- Dados obrigatórios do Checkout preenchidos corretamente;
+- Usuário na página `Checkout: Overview`.
+
+### Dados de Teste
+
+**Produto:** `Sauce Labs Backpack`
+
+### Passos
+
+1. Localizar `Sauce Labs Backpack` na página de produtos;
+2. Registrar nome e preço apresentados;
+3. Adicionar o produto ao carrinho;
+4. Iniciar o Checkout;
+5. Preencher os dados obrigatórios;
+6. Avançar para `Checkout: Overview`;
+7. Localizar o produto no resumo;
+8. Comparar nome e preço.
+
+### Resultado Esperado
+
+O nome e o preço apresentados no Checkout Overview devem corresponder às informações apresentadas anteriormente para o produto.
+
+### Status
+
+✅ Aprovado
+
+---
+
+## CT-026 — Validar subtotal da compra
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar que o `Item total` apresentado no Checkout corresponde à soma dos preços dos produtos da compra.
+
+### Pré-condições
+
+- Usuário autenticado;
+- Múltiplos produtos adicionados ao carrinho;
+- Usuário na página `Checkout: Overview`.
+
+### Dados de Teste
+
+Produtos:
+
+- `Sauce Labs Backpack`;
+- `Sauce Labs Bike Light`.
+
+### Passos
+
+1. Adicionar os dois produtos ao carrinho;
+2. Iniciar o Checkout;
+3. Preencher os dados obrigatórios;
+4. Avançar para `Checkout: Overview`;
+5. Capturar os preços dos produtos;
+6. Somar os valores;
+7. Capturar o valor apresentado em `Item total`;
+8. Comparar os valores.
+
+### Resultado Esperado
+
+O valor de `Item total` deve ser igual à soma dos preços de todos os produtos presentes na compra.
+
+### Status
+
+✅ Aprovado
+
+---
+
+## CT-027 — Validar cálculo do total da compra
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar que o valor total da compra é calculado corretamente considerando o subtotal dos produtos e o valor da taxa.
+
+### Pré-condições
+
+- Usuário autenticado;
+- Produto(s) adicionado(s) ao carrinho;
+- Usuário na página `Checkout: Overview`.
+
+### Passos
+
+1. Realizar o fluxo necessário até `Checkout: Overview`;
+2. Capturar o valor apresentado em `Item total`;
+3. Capturar o valor apresentado em `Tax`;
+4. Capturar o valor apresentado em `Total`;
+5. Converter os valores para números;
+6. Somar `Item total` e `Tax`;
+7. Comparar o resultado calculado com o `Total` apresentado.
+
+### Resultado Esperado
+
+O valor apresentado em `Total` deve corresponder a:
+
+`Item total + Tax = Total`
+
+### Status
+
+✅ Aprovado
+
+---
+
+## CT-028 — Cancelar o Checkout
+
+**Prioridade:** Média  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar o funcionamento da opção `Cancel` durante o processo de Checkout.
+
+### Pré-condições
+
+- Usuário autenticado;
+- Produto adicionado ao carrinho;
+- Usuário no processo de Checkout.
+
+### Passos
+
+1. Adicionar um produto ao carrinho;
+2. Iniciar o Checkout;
+3. Preencher os dados obrigatórios;
+4. Avançar para `Checkout: Overview`;
+5. Verificar a presença do botão `Cancel`;
+6. Clicar em `Cancel`;
+7. Verificar a página apresentada.
+
+### Resultado Esperado
+
+O Checkout deve ser cancelado e o usuário deve retornar para a página de produtos.
+
+### Status
+
+✅ Aprovado
+
+---
+
+## CT-029 — Finalizar compra com sucesso
+
+**Prioridade:** Alta  
+**Tipo:** Positivo  
+**Automatizado:** Sim
+
+### Objetivo
+
+Validar que o usuário consegue concluir uma compra com sucesso.
+
+### Pré-condições
+
+- Usuário autenticado;
+- Produto adicionado ao carrinho;
+- Dados obrigatórios do Checkout preenchidos corretamente;
+- Usuário na página `Checkout: Overview`.
+
+### Dados de Teste
+
+**Produto:** `Sauce Labs Backpack`  
+**First Name:** `Gabriel`  
+**Last Name:** `Dantas`  
+**Zip/Postal Code:** `12345`
+
+### Passos
+
+1. Adicionar `Sauce Labs Backpack` ao carrinho;
+2. Acessar o carrinho;
+3. Iniciar o Checkout;
+4. Preencher os dados obrigatórios;
+5. Avançar para `Checkout: Overview`;
+6. Verificar que o produto está presente;
+7. Clicar em `Finish`;
+8. Verificar a página de confirmação.
+
+### Resultado Esperado
+
+A compra deve ser concluída com sucesso e a aplicação deve apresentar a página de confirmação da compra.
+
+### Status
+
+✅ Aprovado
+
+---
+
+## 🔎 Observações Exploratórias — Checkout
+
+Durante a exploração manual da primeira etapa do Checkout foi observado que o campo `Zip/Postal Code` permite avançar utilizando diferentes formatos de valor, incluindo valores curtos e caracteres alfabéticos.
+
+O comportamento não foi classificado como defeito, pois não há requisito disponível especificando:
+
+- formato obrigatório;
+- quantidade mínima ou máxima de caracteres;
+- aceitação exclusiva de caracteres numéricos;
+- padrão postal ou país utilizado.
+
+Também foi observado um comportamento inesperado durante uma execução manual envolvendo o campo `First Name`. Entretanto, o comportamento não foi reproduzido de forma consistente nas verificações posteriores e, portanto, não foi registrado como defeito confirmado.
 
 ---
 

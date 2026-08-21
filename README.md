@@ -103,13 +103,15 @@ O projeto está sendo desenvolvido de forma incremental, iniciando pela explora�
 
 ### 🧪 Testes Automatizados
 
-Atualmente o projeto possui **12 testes automatizados executados com sucesso**.
+O projeto SauceDemo possui atualmente **29 testes automatizados executados com sucesso utilizando Cypress**.
 
 | Módulo | Casos | Resultado |
 |---|---:|---|
 | 🔐 Login | 5 | ✅ 5/5 |
 | 📦 Produtos | 7 | ✅ 7/7 |
-| **Total** | **12** | **✅ 12/12** |
+| 🛒 Carrinho | 8 | ✅ 8/8 |
+| 💳 Checkout | 9 | ✅ 9/9 |
+| **Total** | **29** | **✅ 29/29** |
 
 ### 🔐 Módulo de Login
 
@@ -148,6 +150,37 @@ Durante este módulo foram aplicadas validações envolvendo:
 - Navegação entre páginas;
 - Consistência de informações entre listagem e detalhes.
 
+### 🛒 Módulo de Carrinho
+
+O terceiro módulo automatizado contempla cenários relacionados à manipulação e validação do carrinho:
+
+- CT-013 — Adicionar um produto ao carrinho;
+- CT-014 — Validar badge do carrinho após adicionar produto;
+- CT-015 — Adicionar múltiplos produtos diferentes ao carrinho;
+- CT-016 — Validar produtos adicionados dentro do carrinho;
+- CT-017 — Remover produto pelo carrinho;
+- CT-018 — Remover produto pela página de Produtos;
+- CT-019 — Continuar comprando a partir do carrinho;
+- CT-020 — Acessar o Checkout a partir do carrinho.
+
+**Resultado: 8/8 testes automatizados aprovados. ✅**
+
+### 💳 Módulo de Checkout
+
+O quarto módulo automatizado contempla cenários relacionados ao formulário, validações e conclusão do processo de compra:
+
+- CT-021 — Avançar no checkout com dados válidos;
+- CT-022 — Validar obrigatoriedade do First Name;
+- CT-023 — Validar obrigatoriedade do Last Name;
+- CT-024 — Validar obrigatoriedade do Postal Code;
+- CT-025 — Validar informações do produto no Checkout Overview;
+- CT-026 — Validar subtotal da compra;
+- CT-027 — Validar cálculo do total da compra;
+- CT-028 — Cancelar o Checkout;
+- CT-029 — Finalizar compra com sucesso.
+
+**Resultado: 9/9 testes automatizados aprovados. ✅**
+
 ### 📚 Documentação do Projeto
 
 - [📋 Casos de Teste](./12%20-%20Projetos/SauceDemo/Docs/casos-de-teste.md)
@@ -156,6 +189,8 @@ Durante este módulo foram aplicadas validações envolvendo:
 - [🤖 Código Cypress](./12%20-%20Projetos/SauceDemo/cypress/e2e/)
 - [🔐 Automação de Login](./12%20-%20Projetos/SauceDemo/cypress/e2e/login.cy.js)
 - [📦 Automação de Produtos](./12%20-%20Projetos/SauceDemo/cypress/e2e/products.cy.js)
+- [🛒 Automação de Carrinho](./12%20-%20Projetos/SauceDemo/cypress/e2e/cart.cy.js)
+- [💳 Automação de Checkout](./12%20-%20Projetos/SauceDemo/cypress/e2e/checkout.cy.js)
 
 ### 📸 Evidências
 
@@ -163,16 +198,20 @@ As evidências das execuções realizadas estão organizadas por funcionalidade:
 
 - [🔐 Evidência — Login](./12%20-%20Projetos/SauceDemo/Evidencias/Login/login-testes-aprovados.png)
 - [📦 Evidência — Produtos](./12%20-%20Projetos/SauceDemo/Evidencias/Produtos/produtos-testes-aprovados.png)
+- [🛒 Evidência — Carrinho](./12%20-%20Projetos/SauceDemo/Evidencias/Carrinho/carrinho-testes-aprovados.png)
+- [💳 Evidência — Checkout](./12%20-%20Projetos/SauceDemo/Evidencias/Checkout/checkout-testes-aprovados.png)
 
-### 📊 Progresso
+### 📊 Progresso do SauceDemo
 
 | Módulo | Status |
 |---|---|
 | 🔐 Login | ✅ Concluído — 5/5 |
 | 📦 Produtos | ✅ Concluído — 7/7 |
-| 🛒 Carrinho | 🔄 Próxima etapa |
-| 💳 Checkout | ⏳ Planejado |
-| 🔄 Fluxo E2E | ⏳ Planejado |
+| 🛒 Carrinho | ✅ Concluído — 8/8 |
+| 💳 Checkout | ✅ Concluído — 9/9 |
+| 🔄 Fluxo End-to-End | 🔄 Próxima etapa |
+
+**Total atual: 29/29 testes automatizados aprovados.**
 
 ➡️ [Ver documentação completa do projeto](./12%20-%20Projetos/SauceDemo/README.md)
 
@@ -215,7 +254,7 @@ Atualmente estou evoluindo meus conhecimentos principalmente em:
 - [x] Automatizar módulo de Produtos;
 - [x] Registrar evidências das execuções;
 - [x] Aplicar refatoração e boas práticas básicas nos testes;
-- [ ] Automatizar módulo de Carrinho;
+- [x] Automatizar módulo de Carrinho;
 - [ ] Automatizar módulo de Checkout;
 - [ ] Criar fluxo completo End-to-End;
 - [ ] Expandir automação com Cypress;

@@ -121,7 +121,8 @@ Atualmente o projeto possui:
 | 🔐 Login | 5 | ✅ 5/5 |
 | 📦 Produtos | 7 | ✅ 7/7 |
 | 🛒 Carrinho | 8 | ✅ 8/8 |
-| **Total** | **20** | **✅ 20/20** |
+| 💳 Checkout | 9 | ✅ 9/9 |
+| **Total** | **29** | **✅ 29/29** |
 
 ---
 
@@ -271,6 +272,55 @@ Durante os testes de Carrinho foram realizadas validações relacionadas a:
 
 ---
 
+# 💳 Módulo de Checkout
+
+O quarto módulo desenvolvido foi o fluxo de Checkout da aplicação.
+
+Foram documentados e automatizados nove cenários relacionados ao preenchimento do formulário, validação de campos obrigatórios, conferência das informações da compra, cálculos financeiros, cancelamento e conclusão do pedido.
+
+## Casos de Teste
+
+| ID | Cenário | Tipo | Resultado |
+|---|---|---|---|
+| CT-021 | Avançar no checkout com dados válidos | Positivo | ✅ Aprovado |
+| CT-022 | Validar obrigatoriedade do First Name | Negativo | ✅ Aprovado |
+| CT-023 | Validar obrigatoriedade do Last Name | Negativo | ✅ Aprovado |
+| CT-024 | Validar obrigatoriedade do Postal Code | Negativo | ✅ Aprovado |
+| CT-025 | Validar informações do produto no Checkout Overview | Positivo | ✅ Aprovado |
+| CT-026 | Validar subtotal da compra | Positivo | ✅ Aprovado |
+| CT-027 | Validar cálculo do total da compra | Positivo | ✅ Aprovado |
+| CT-028 | Cancelar o Checkout | Positivo | ✅ Aprovado |
+| CT-029 | Finalizar compra com sucesso | Positivo | ✅ Aprovado |
+
+**Resultado: 9/9 testes aprovados. ✅**
+
+### 🔎 Validações realizadas
+
+Durante os testes de Checkout foram realizadas validações relacionadas a:
+
+- Preenchimento válido dos dados do Checkout;
+- Obrigatoriedade do campo `First Name`;
+- Obrigatoriedade do campo `Last Name`;
+- Obrigatoriedade do campo `Zip/Postal Code`;
+- Navegação para `Checkout: Overview`;
+- Consistência do nome do produto;
+- Consistência do preço do produto;
+- Cálculo do subtotal da compra;
+- Comparação entre a soma dos produtos e o `Item total`;
+- Validação matemática de `Item total + Tax = Total`;
+- Cancelamento do Checkout;
+- Retorno para a página de produtos;
+- Finalização da compra;
+- Página de confirmação do pedido;
+- Mensagem de compra concluída.
+
+### 🤖 Automação
+
+➡️ [Ver `checkout.cy.js`](./cypress/e2e/checkout.cy.js)
+
+---
+
+
 # ⚙️ Boas Práticas Aplicadas
 
 Durante a implementação das automações foram utilizadas práticas para melhorar a organização, legibilidade e manutenção dos testes.
@@ -397,6 +447,19 @@ Foram executados os oito cenários automatizados do módulo de Carrinho.
 
 ---
 
+## 💳 Checkout
+
+Foram executados os nove cenários automatizados do módulo de Checkout.
+
+**Resultado: 9 testes aprovados. ✅**
+
+![Execução dos testes de Checkout](./Evidencias/Checkout/checkout-testes-aprovados.png)
+
+➡️ [Abrir evidência de Checkout](./Evidencias/Checkout/checkout-testes-aprovados.png)
+
+---
+
+
 # 📊 Status do Projeto
 
 | Módulo | Documentação | Automação | Execução |
@@ -404,7 +467,7 @@ Foram executados os oito cenários automatizados do módulo de Carrinho.
 | 🔐 Login | ✅ | ✅ | ✅ 5/5 |
 | 📦 Produtos | ✅ | ✅ | ✅ 7/7 |
 | 🛒 Carrinho | ✅ | ✅ | ✅ 8/8 |
-| 💳 Checkout | ⏳ | ⏳ | ⏳ |
+| 💳 Checkout | ✅ | ✅ | ✅ 9/9 |
 | 🔄 End-to-End | ⏳ | ⏳ | ⏳ |
 
 ### Progresso atual
@@ -412,10 +475,10 @@ Foram executados os oito cenários automatizados do módulo de Carrinho.
 Login       ██████████ 100%  ✅
 Produtos    ██████████ 100%  ✅
 Carrinho    ██████████ 100%  ✅
-Checkout    ░░░░░░░░░░   0%  ⏳
+Checkout    ██████████ 100%  ✅
 E2E         ░░░░░░░░░░   0%  ⏳
 
-**Próximo módulo: 💳 Checkout**
+**Próximo módulo: 🔄 End-to-End**
 
 ---
 
@@ -475,6 +538,7 @@ As specs disponíveis atualmente incluem:
 login.cy.js
 products.cy.js
 cart.cy.js
+checkout.cy.js
 ```
 
 ---
@@ -509,6 +573,15 @@ npx cypress run --spec "cypress/e2e/products.cy.js"
 npx cypress run --spec "cypress/e2e/cart.cy.js"
 
 ---
+
+## Executar somente Checkout
+
+```bash
+npx cypress run --spec "cypress/e2e/checkout.cy.js"
+```
+
+---
+
 
 # 🤖 Uso de Inteligência Artificial
 
@@ -592,8 +665,8 @@ Esse processo faz parte da análise exploratória utilizada antes da automação
 - [x] Refatorar automação do Carrinho;
 - [x] Executar testes do Carrinho;
 - [x] Registrar evidência do Carrinho;
-- [ ] Documentar casos de teste do Checkout;
-- [ ] Automatizar testes do Checkout;
+- [x] Documentar casos de teste do Checkout;
+- [x] Automatizar testes do Checkout;
 - [ ] Criar cenário completo End-to-End;
 - [ ] Implementar relatórios de execução;
 - [ ] Trabalhar com branches e Pull Requests;
